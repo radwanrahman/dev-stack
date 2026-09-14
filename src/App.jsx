@@ -6,6 +6,7 @@ import Stack from "./components/Stack";
 
 function App() {
   const [technologies, setTechnologies] = useState([]);
+  const [selectedStack, setSelectedStack] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -16,6 +17,33 @@ function App() {
         setLoading(false);
       });
   }, []);
+
+  // Add technology to stack
+  const addToStack = (technology) => {
+    const alreadyAdded = selectedStack.some(
+      (item) => item.id === technology.id
+    );
+
+    if (alreadyAdded) {
+      return;
+    }
+
+    setSelectedStack([...selectedStack, technology]);
+  };
+
+  // Remove one technology
+  const removeFromStack = (id) => {
+    const updatedStack = selectedStack.filter(
+      (technology) => technology.id !== id
+    );
+
+    setSelectedStack(updatedStack);
+  };
+
+  // Remove all technologies
+  const removeAll = () => {
+    setSelectedStack([]);
+  };
 
   return (
     <>
@@ -57,18 +85,25 @@ function App() {
                     <TechnologyCard
                       key={technology.id}
                       technology={technology}
+                      onAdd={addToStack}
+                      isAdded={selectedStack.some(
+                        (item) => item.id === technology.id
+                      )}
                     />
                   ))}
                 </div>
 
                 {/* Your Stack */}
                 <div>
-                  <Stack />
+                  <Stack
+                    selectedStack={selectedStack}
+                    onRemove={removeFromStack}
+                    onRemoveAll={removeAll}
+                  />
                 </div>
 
               </div>
             )}
-
           </div>
         </section>
       </main>

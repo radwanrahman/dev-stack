@@ -1,4 +1,4 @@
-function TechnologyCard({ technology }) {
+function TechnologyCard({ technology, onAdd, isAdded }) {
   return (
     <div
       className="group bg-white border border-slate-200 rounded-xl p-5 shadow-sm
@@ -29,7 +29,7 @@ function TechnologyCard({ technology }) {
       </div>
 
       {/* Technology name */}
-      <h3 className="mt-4 text-base font-semibold text-slate-900 group-hover:text-slate-950">
+      <h3 className="mt-4 text-base font-semibold text-slate-900">
         {technology.name}
       </h3>
 
@@ -49,23 +49,24 @@ function TechnologyCard({ technology }) {
         </span>
 
         <span className="text-[11px] font-medium text-slate-600">
-          <span className="text-yellow-500">★</span>{" "}
-          {technology.rating}
+          <span className="text-yellow-500">★</span> {technology.rating}
         </span>
       </div>
 
       {/* Add button */}
       <button
         type="button"
-        className="w-full mt-4 py-2.5 rounded-md
-        bg-slate-950 text-white
-        text-xs font-medium
-        hover:bg-slate-800
-        hover:shadow-sm
-        active:scale-[0.98]
-        transition-all duration-200"
+        onClick={() => onAdd(technology)}
+        disabled={isAdded}
+        className={`w-full mt-4 py-2.5 rounded-md text-xs font-medium
+          transition-all duration-200
+          ${
+            isAdded
+              ? "bg-slate-200 text-slate-500 cursor-not-allowed"
+              : "bg-slate-950 text-white hover:bg-slate-800 hover:shadow-sm active:scale-[0.98]"
+          }`}
       >
-        Add to Stack
+        {isAdded ? "✓ Added to Stack" : "Add to Stack"}
       </button>
     </div>
   );
