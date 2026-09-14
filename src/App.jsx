@@ -32,6 +32,7 @@ function App() {
   }
 
   setSelectedStack([...selectedStack, technology]);
+
   toast.success(`${technology.name} added to your stack.`);
 };
 

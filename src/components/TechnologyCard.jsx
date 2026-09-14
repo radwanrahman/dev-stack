@@ -55,19 +55,19 @@ function TechnologyCard({ technology, onAdd, isAdded }) {
 
       {/* Add button */}
       <button
-        type="button"
-        onClick={() => onAdd(technology)}
-        disabled={isAdded}
-        className={`w-full mt-4 py-2.5 rounded-md text-xs font-medium
-          transition-all duration-200
-          ${
-            isAdded
-              ? "bg-slate-200 text-slate-500 cursor-not-allowed"
-              : "bg-slate-950 text-white hover:bg-slate-800 hover:shadow-sm active:scale-[0.98]"
-          }`}
-      >
-        {isAdded ? "✓ Added to Stack" : "Add to Stack"}
-      </button>
+       type="button"
+       onClick={() => onAdd(technology)}
+      disabled={isAdded}
+      className={`w-full mt-4 py-2.5 rounded-md text-xs font-medium
+      transition-all duration-200
+      ${
+        isAdded
+          ? "bg-slate-200 text-slate-500 cursor-not-allowed"
+          : "bg-slate-950 text-white hover:bg-slate-800 hover:shadow-sm active:scale-[0.98]"
+      }`}
+>
+  {isAdded ? "✓ Added to Stack" : "Add to Stack"}
+</button>
     </div>
   );
 }
