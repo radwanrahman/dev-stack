@@ -1,3 +1,5 @@
+import heroImage from "../assets/hero.png";
+
 function Hero() {
   return (
     <section className="bg-white">
@@ -21,6 +23,7 @@ function Hero() {
             leading-[1.05] text-slate-950"
           >
             Build Your Ideal
+
             <span
               className="block mt-1
               bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600
@@ -73,7 +76,7 @@ function Hero() {
         <div className="flex justify-center md:justify-end">
           <div className="w-full max-w-[360px] sm:max-w-[420px] lg:max-w-[480px]">
             <img
-              src="/assets/banner-stack.png"
+              src={heroImage}
               alt="Development technology stack"
               className="w-full h-auto object-contain
               transition-transform duration-300

@@ -1,3 +1,5 @@
+import logoText from "../assets/logo-text.png";
+
 function Navbar() {
   return (
     <nav className="sticky top-0 z-50 bg-white border-b border-slate-100">
@@ -7,19 +9,15 @@ function Navbar() {
         <div className="hidden md:flex h-16 items-center justify-between">
 
           {/* Logo */}
-          <a
-            href="/"
-            className="flex items-center gap-2"
-          >
+          <a href="/" className="flex items-center">
             <img
-              src="/assets/logo-text.png"
-              alt="Dev Stack20 h-20 object-contain"
-              href="/"
+              src={logoText}
+              alt="Dev Stack"
+              className="w-auto h-8 object-contain"
             />
-
           </a>
 
-          {/* Navigation */}
+          {/* Navigation Links */}
           <div className="flex items-center gap-7">
             <a
               href="/"
@@ -96,23 +94,16 @@ function Navbar() {
 
           {/* Logo */}
           <div className="flex justify-center">
-            <a
-              href="/"
-              className="flex items-center gap-1.5"
-            >
+            <a href="/" className="flex items-center">
               <img
-                src="/assets/logo.png"
+                src={logoText}
                 alt="Dev Stack"
-                className="w-7 h-7 object-contain"
+                className="w-auto h-7 object-contain"
               />
-
-              <span className="text-base font-bold text-slate-900 whitespace-nowrap">
-                Dev Stack
-              </span>
             </a>
           </div>
 
-          {/* Auth */}
+          {/* Auth Buttons */}
           <div className="flex justify-end items-center gap-2">
             <button
               type="button"
