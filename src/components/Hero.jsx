@@ -1,5 +1,3 @@
-import heroImage from "../assets/hero.png";
-
 function Hero() {
   return (
     <section className="bg-white">
@@ -11,6 +9,7 @@ function Hero() {
         items-center
         py-16 md:py-20"
       >
+
         {/* Hero Text */}
         <div className="max-w-xl">
           <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.16em] text-slate-400">
@@ -76,7 +75,7 @@ function Hero() {
         <div className="flex justify-center md:justify-end">
           <div className="w-full max-w-[360px] sm:max-w-[420px] lg:max-w-[480px]">
             <img
-              src={heroImage}
+              src={`${import.meta.env.BASE_URL}assets/banner-stack.png`}
               alt="Development technology stack"
               className="w-full h-auto object-contain
               transition-transform duration-300
@@ -84,6 +83,7 @@ function Hero() {
             />
           </div>
         </div>
+
       </div>
     </section>
   );

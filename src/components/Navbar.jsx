@@ -1,4 +1,3 @@
-import logoText from "../assets/logo-text.png";
 
 function Navbar() {
   return (
