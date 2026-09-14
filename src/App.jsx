@@ -3,6 +3,8 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import TechnologyCard from "./components/TechnologyCard";
 import Stack from "./components/Stack";
+import { toast } from "react-toastify";
+
 
 function App() {
   const [technologies, setTechnologies] = useState([]);
@@ -20,30 +22,43 @@ function App() {
 
   // Add technology to stack
   const addToStack = (technology) => {
-    const alreadyAdded = selectedStack.some(
-      (item) => item.id === technology.id
-    );
+  const alreadyAdded = selectedStack.some(
+    (item) => item.id === technology.id
+  );
 
-    if (alreadyAdded) {
-      return;
-    }
+  if (alreadyAdded) {
+    toast.warning(`${technology.name} is already in your stack.`);
+    return;
+  }
 
-    setSelectedStack([...selectedStack, technology]);
-  };
+  setSelectedStack([...selectedStack, technology]);
+  toast.success(`${technology.name} added to your stack.`);
+};
 
-  // Remove one technology
+// Remove one technology
   const removeFromStack = (id) => {
-    const updatedStack = selectedStack.filter(
-      (technology) => technology.id !== id
-    );
+  const technology = selectedStack.find((item) => item.id === id);
 
-    setSelectedStack(updatedStack);
-  };
+  const updatedStack = selectedStack.filter(
+    (technology) => technology.id !== id
+  );
 
-  // Remove all technologies
+  setSelectedStack(updatedStack);
+
+  if (technology) {
+    toast.info(`${technology.name} removed from your stack.`);
+  }
+};
+
+// Remove all technologies
   const removeAll = () => {
-    setSelectedStack([]);
-  };
+  if (selectedStack.length === 0) {
+    return;
+  }
+
+  setSelectedStack([]);
+  toast.info("All technologies removed from your stack.");
+};
 
   return (
     <>
