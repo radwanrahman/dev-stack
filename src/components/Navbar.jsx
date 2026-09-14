@@ -1,4 +1,3 @@
-
 function Navbar() {
   return (
     <nav className="sticky top-0 z-50 bg-white border-b border-slate-100">
@@ -10,13 +9,13 @@ function Navbar() {
           {/* Logo */}
           <a href="/" className="flex items-center">
             <img
-              src={logoText}
+              src={`${import.meta.env.BASE_URL}assets/logo-text.png`}
               alt="Dev Stack"
-              className="w-auto h-8 object-contain"
+              className="h-8 w-auto object-contain"
             />
           </a>
 
-          {/* Navigation Links */}
+          {/* Navigation */}
           <div className="flex items-center gap-7">
             <a
               href="/"
@@ -65,8 +64,7 @@ function Navbar() {
 
             <button
               type="button"
-              className="px-5 py-2 rounded-full
-              text-sm font-medium text-white
+              className="px-5 py-2 rounded-full text-sm font-medium text-white
               bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600
               hover:opacity-90 transition-opacity"
             >
@@ -83,8 +81,7 @@ function Navbar() {
             <button
               type="button"
               className="w-9 h-9 flex items-center justify-center
-              rounded-md text-slate-700
-              hover:bg-slate-50 transition-colors"
+              rounded-md text-slate-700 hover:bg-slate-50 transition-colors"
               aria-label="Open menu"
             >
               <span className="text-xl">☰</span>
@@ -95,14 +92,14 @@ function Navbar() {
           <div className="flex justify-center">
             <a href="/" className="flex items-center">
               <img
-                src={logoText}
+                src={`${import.meta.env.BASE_URL}assets/logo-text.png`}
                 alt="Dev Stack"
-                className="w-auto h-7 object-contain"
+                className="h-7 w-auto object-contain"
               />
             </a>
           </div>
 
-          {/* Auth Buttons */}
+          {/* Auth */}
           <div className="flex justify-end items-center gap-2">
             <button
               type="button"
@@ -113,8 +110,7 @@ function Navbar() {
 
             <button
               type="button"
-              className="px-3 py-1.5 rounded-full
-              text-[11px] font-medium text-white
+              className="px-3 py-1.5 rounded-full text-[11px] font-medium text-white
               bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600"
             >
               Sign Up
