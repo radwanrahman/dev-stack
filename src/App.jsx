@@ -14,7 +14,7 @@ function App() {
 
   // Load technology data
   useEffect(() => {
-    fetch("/data/technologies.json")
+    fetch(`${import.meta.env.BASE_URL}data/technologies.json`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to load technologies");
