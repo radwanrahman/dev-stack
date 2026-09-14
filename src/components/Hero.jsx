@@ -1,35 +1,68 @@
 function Hero() {
   return (
     <section className="bg-white">
-      <div className="max-w-7xl mx-auto px-6 py-16 md:py-24 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-
-        {/* Hero Text */}
-        <div>
-
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight text-gray-900">
+      <div
+        className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8
+        min-h-[520px] md:min-h-[580px]
+        grid grid-cols-1 md:grid-cols-2
+        gap-10 lg:gap-16
+        items-center
+        py-16 md:py-20"
+      >
+        {/* Hero Content */}
+        <div className="max-w-xl">
+          <h1
+            className="mt-4 text-4xl sm:text-5xl lg:text-6xl
+            font-bold tracking-[-0.03em]
+            leading-[1.05] text-slate-950"
+          >
             Build Your Ideal
-            <span className="block bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600 bg-clip-text text-transparent">
+            <span
+              className="block mt-1
+              bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600
+              bg-clip-text text-transparent"
+            >
               Development Stack
             </span>
           </h1>
 
-          <p className="mt-6 text-lg text-gray-600 max-w-xl leading-relaxed">
-            Explore frontend, backend, database, and tooling options to build
-            the right stack for your next project.
+          <p
+            className="mt-6 max-w-lg
+            text-base sm:text-lg
+            leading-7 text-slate-500"
+          >
+            Explore frontend, backend, database, and tooling options.
+            Compare them side by side and put together the stack that fits
+            your next project.
           </p>
 
           {/* Buttons */}
-          <div className="mt-8 flex flex-col sm:flex-row gap-4">
+          <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <a
               href="#technologies"
-              className="px-6 py-3 rounded-full text-white font-medium text-center bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600 hover:opacity-90 transition"
+              className="inline-flex items-center justify-center
+              px-6 py-3
+              rounded-lg
+              text-sm font-medium text-white
+              bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600
+              shadow-sm
+              hover:shadow-md hover:-translate-y-0.5
+              transition-all duration-200"
             >
               Explore Technologies
             </a>
 
             <a
               href="#about"
-              className="px-6 py-3 rounded-full border border-gray-300 text-gray-800 font-medium text-center hover:bg-gray-50 transition"
+              className="inline-flex items-center justify-center
+              px-6 py-3
+              rounded-lg
+              border border-slate-200
+              bg-white
+              text-sm font-medium text-slate-700
+              hover:bg-slate-50
+              hover:border-slate-300
+              transition-all duration-200"
             >
               Learn More
             </a>
@@ -37,14 +70,17 @@ function Hero() {
         </div>
 
         {/* Hero Image */}
-        <div className="flex justify-center">
-          <img
-            src="/assets/banner-stack.png"
-            alt="Development technology stack"
-            className="w-full max-w-lg"
-          />
+        <div className="flex justify-center md:justify-end">
+          <div className="w-full max-w-sm sm:max-w-md lg:max-w-lg">
+            <img
+              src="/assets/banner-stack.png"
+              alt="Development technology stack"
+              className="w-full h-auto object-contain
+              transition-transform duration-300
+              hover:scale-[1.02]"
+            />
+          </div>
         </div>
-
       </div>
     </section>
   );
