@@ -1,4 +1,7 @@
+
 import Navbar from "./components/Navbar";
+
+import Hero from "./components/Hero";
 
 function App() {
   return (
@@ -6,7 +9,7 @@ function App() {
       <Navbar />
 
       <main>
-        <h1>Dev Stack</h1>
+        <Hero />
       </main>
     </>
   );
