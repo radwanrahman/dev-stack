@@ -1,65 +1,76 @@
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import TechnologyCard from "./components/TechnologyCard";
 import Stack from "./components/Stack";
-import { toast } from "react-toastify";
-
 
 function App() {
   const [technologies, setTechnologies] = useState([]);
   const [selectedStack, setSelectedStack] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
+  // Load technology data
   useEffect(() => {
     fetch("/data/technologies.json")
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to load technologies");
+        }
+
+        return response.json();
+      })
       .then((data) => {
         setTechnologies(data);
         setLoading(false);
+      })
+      .catch(() => {
+        setLoading(false);
+        setError(true);
+        toast.error("Unable to load technologies.");
       });
   }, []);
 
   // Add technology to stack
   const addToStack = (technology) => {
-  const alreadyAdded = selectedStack.some(
-    (item) => item.id === technology.id
-  );
+    const alreadyAdded = selectedStack.some(
+      (item) => item.id === technology.id
+    );
 
-  if (alreadyAdded) {
-    toast.warning(`${technology.name} is already in your stack.`);
-    return;
-  }
+    if (alreadyAdded) {
+      toast.warning(`${technology.name} is already in your stack.`);
+      return;
+    }
 
-  setSelectedStack([...selectedStack, technology]);
+    setSelectedStack([...selectedStack, technology]);
+    toast.success(`${technology.name} added to your stack.`);
+  };
 
-  toast.success(`${technology.name} added to your stack.`);
-};
-
-// Remove one technology
+  // Remove one technology
   const removeFromStack = (id) => {
-  const technology = selectedStack.find((item) => item.id === id);
+    const technology = selectedStack.find((item) => item.id === id);
 
-  const updatedStack = selectedStack.filter(
-    (technology) => technology.id !== id
-  );
+    const updatedStack = selectedStack.filter(
+      (technology) => technology.id !== id
+    );
 
-  setSelectedStack(updatedStack);
+    setSelectedStack(updatedStack);
 
-  if (technology) {
-    toast.info(`${technology.name} removed from your stack.`);
-  }
-};
+    if (technology) {
+      toast.info(`${technology.name} removed from your stack.`);
+    }
+  };
 
-// Remove all technologies
+  // Remove all technologies
   const removeAll = () => {
-  if (selectedStack.length === 0) {
-    return;
-  }
+    if (selectedStack.length === 0) {
+      return;
+    }
 
-  setSelectedStack([]);
-  toast.info("All technologies removed from your stack.");
-};
+    setSelectedStack([]);
+    toast.info("All technologies removed from your stack.");
+  };
 
   return (
     <>
@@ -85,14 +96,40 @@ function App() {
               </p>
             </div>
 
-            {/* Technology Area */}
-            {loading ? (
+            {/* Loading State */}
+            {loading && (
               <div className="py-20 text-center">
-                <p className="text-sm text-slate-500">
+                <div className="inline-block w-8 h-8 border-2 border-slate-200 border-t-slate-900 rounded-full animate-spin"></div>
+
+                <p className="mt-4 text-sm text-slate-500">
                   Loading technologies...
                 </p>
               </div>
-            ) : (
+            )}
+
+            {/* Error State */}
+            {!loading && error && (
+              <div className="py-20 text-center">
+                <p className="text-base font-medium text-slate-800">
+                  Something went wrong.
+                </p>
+
+                <p className="mt-2 text-sm text-slate-500">
+                  We could not load the technology list.
+                </p>
+
+                <button
+                  type="button"
+                  onClick={() => window.location.reload()}
+                  className="mt-5 px-5 py-2.5 rounded-md bg-slate-950 text-white text-sm font-medium hover:bg-slate-800 transition"
+                >
+                  Try Again
+                </button>
+              </div>
+            )}
+
+            {/* Technology Area */}
+            {!loading && !error && (
               <div className="grid grid-cols-1 lg:grid-cols-4 gap-5">
 
                 {/* Technology Cards */}
@@ -120,6 +157,7 @@ function App() {
 
               </div>
             )}
+
           </div>
         </section>
       </main>
