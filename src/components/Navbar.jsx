@@ -1,24 +1,29 @@
 function Navbar() {
   return (
     <nav className="sticky top-0 z-50 bg-white border-b border-slate-100">
-      <div className="max-w-7xl mx-auto px-5 md:px-6">
-        
+      <div className="max-w-7xl mx-auto px-5 md:px-8">
+
         {/* Desktop Navbar */}
         <div className="hidden md:flex h-16 items-center justify-between">
-          
-          {/* Brand */}
+
+          {/* Logo */}
           <a
             href="/"
-            className="text-xl font-bold text-slate-900"
+            className="flex items-center gap-2"
           >
-            Dev Stack
+            <img
+              src="/assets/logo-text.png"
+              alt="Dev Stack20 h-20 object-contain"
+              href="/"
+            />
+
           </a>
 
-          {/* Navigation Links */}
+          {/* Navigation */}
           <div className="flex items-center gap-7">
             <a
               href="/"
-              className="text-sm text-slate-600 hover:text-slate-950 transition-colors"
+              className="text-sm font-medium text-pink-500"
             >
               Home
             </a>
@@ -56,14 +61,15 @@ function Navbar() {
           <div className="flex items-center gap-3">
             <button
               type="button"
-              className="px-4 py-2 text-sm text-slate-600 hover:text-slate-950 transition-colors"
+              className="px-3 py-2 text-sm text-slate-600 hover:text-slate-950 transition-colors"
             >
               Sign In
             </button>
 
             <button
               type="button"
-              className="px-5 py-2 rounded-full text-sm font-medium text-white
+              className="px-5 py-2 rounded-full
+              text-sm font-medium text-white
               bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600
               hover:opacity-90 transition-opacity"
             >
@@ -74,26 +80,35 @@ function Navbar() {
 
         {/* Mobile Navbar */}
         <div className="md:hidden h-16 grid grid-cols-3 items-center">
-          
+
           {/* Menu */}
           <div className="flex justify-start">
             <button
               type="button"
               className="w-9 h-9 flex items-center justify-center
-              text-slate-700 hover:bg-slate-50 rounded-md transition-colors"
+              rounded-md text-slate-700
+              hover:bg-slate-50 transition-colors"
               aria-label="Open menu"
             >
               <span className="text-xl">☰</span>
             </button>
           </div>
 
-          {/* Brand */}
+          {/* Logo */}
           <div className="flex justify-center">
             <a
               href="/"
-              className="text-lg font-bold text-slate-900 whitespace-nowrap"
+              className="flex items-center gap-1.5"
             >
-              Dev Stack
+              <img
+                src="/assets/logo.png"
+                alt="Dev Stack"
+                className="w-7 h-7 object-contain"
+              />
+
+              <span className="text-base font-bold text-slate-900 whitespace-nowrap">
+                Dev Stack
+              </span>
             </a>
           </div>
 
@@ -108,7 +123,8 @@ function Navbar() {
 
             <button
               type="button"
-              className="px-3 py-1.5 rounded-full text-[11px] font-medium text-white
+              className="px-3 py-1.5 rounded-full
+              text-[11px] font-medium text-white
               bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600"
             >
               Sign Up
@@ -116,6 +132,7 @@ function Navbar() {
           </div>
 
         </div>
+
       </div>
     </nav>
   );

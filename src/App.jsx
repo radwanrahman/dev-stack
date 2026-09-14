@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import TechnologyCard from "./components/TechnologyCard";
 import Stack from "./components/Stack";
+import Footer from "./components/Footer";
 
 function App() {
   const [technologies, setTechnologies] = useState([]);
@@ -161,6 +162,8 @@ function App() {
           </div>
         </section>
       </main>
+
+      <Footer />
     </>
   );
 }
