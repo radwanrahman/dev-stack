@@ -12,9 +12,7 @@ function Hero() {
 
         {/* Hero Text */}
         <div className="max-w-xl">
-          <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.16em] text-slate-400">
-            Build Better. Build Smarter.
-          </p>
+          
 
           <h1
             className="mt-4 text-4xl sm:text-5xl lg:text-6xl
