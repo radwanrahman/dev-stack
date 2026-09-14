@@ -5,12 +5,16 @@ function Hero() {
         className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8
         min-h-[520px] md:min-h-[580px]
         grid grid-cols-1 md:grid-cols-2
-        gap-10 lg:gap-16
+        gap-8 lg:gap-12
         items-center
         py-16 md:py-20"
       >
-        {/* Hero Content */}
+        {/* Hero Text */}
         <div className="max-w-xl">
+          <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.16em] text-slate-400">
+            Build Better. Build Smarter.
+          </p>
+
           <h1
             className="mt-4 text-4xl sm:text-5xl lg:text-6xl
             font-bold tracking-[-0.03em]
@@ -41,8 +45,7 @@ function Hero() {
             <a
               href="#technologies"
               className="inline-flex items-center justify-center
-              px-6 py-3
-              rounded-lg
+              px-6 py-3 rounded-lg
               text-sm font-medium text-white
               bg-gradient-to-r from-orange-500 via-pink-500 to-violet-600
               shadow-sm
@@ -55,13 +58,10 @@ function Hero() {
             <a
               href="#about"
               className="inline-flex items-center justify-center
-              px-6 py-3
-              rounded-lg
-              border border-slate-200
-              bg-white
+              px-6 py-3 rounded-lg
+              border border-slate-200 bg-white
               text-sm font-medium text-slate-700
-              hover:bg-slate-50
-              hover:border-slate-300
+              hover:bg-slate-50 hover:border-slate-300
               transition-all duration-200"
             >
               Learn More
@@ -71,7 +71,7 @@ function Hero() {
 
         {/* Hero Image */}
         <div className="flex justify-center md:justify-end">
-          <div className="w-full max-w-sm sm:max-w-md lg:max-w-lg">
+          <div className="w-full max-w-[360px] sm:max-w-[420px] lg:max-w-[480px]">
             <img
               src="/assets/banner-stack.png"
               alt="Development technology stack"
