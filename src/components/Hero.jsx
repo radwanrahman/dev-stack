@@ -5,9 +5,6 @@ function Hero() {
 
         {/* Hero Text */}
         <div>
-          <p className="text-sm font-semibold uppercase tracking-wider text-gray-500 mb-4">
-            Build Better. Build Smarter.
-          </p>
 
           <h1 className="text-4xl md:text-6xl font-bold leading-tight text-gray-900">
             Build Your Ideal
